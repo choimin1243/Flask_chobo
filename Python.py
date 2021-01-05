@@ -1,6 +1,12 @@
 from flask import Flask, render_template, request
+from flask_frozen import Freezer
 
-app = Flask(__name__)
+app = Flask(__name__,template_folder='')
+
+freezer=Freezer(app)
+if __name__== '__main__':
+    freezer.freeze()
+
 
 
 @app.route('/')
@@ -18,4 +24,3 @@ def post():
 
 if __name__ == '__main__':
     app.run()
-
